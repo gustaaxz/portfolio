@@ -1,0 +1,159 @@
+---
+const menu = ['Início', 'Calendário', 'Tarefas', 'Anotações', 'Biblioteca de código'];
+const tasks = [
+	{ label: 'Revisar interface do projeto', done: true },
+	{ label: 'Estudar React Router', done: false },
+	{ label: 'Organizar biblioteca de código', done: true },
+	{ label: 'Planejar próxima entrega', done: false },
+];
+---
+
+<div class="mock">
+	<div class="mock-bar">
+		<span class="dots"><span></span><span></span><span></span></span>
+		<span class="mock-url">devcodes.app / dashboard</span>
+	</div>
+	<div class="mock-body">
+		<aside class="mock-side">
+			{
+				menu.map((item, index) => (
+					<span class:list={['item', index === 0 && 'active']}>{item}</span>
+				))
+			}
+		</aside>
+		<div class="mock-main">
+			<p class="mock-title">Seu espaço de trabalho</p>
+			<p class="mock-caption">Tarefas de hoje · 02 / 04</p>
+			<ul class="mock-tasks">
+				{
+					tasks.map((task) => (
+						<li class:list={['task', task.done && 'done']}>
+							<span class:list={['check', task.done && 'checked']}>{task.done ? '✓' : ''}</span>
+							{task.label}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<style>
+	.mock {
+		overflow: hidden;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		box-shadow: 0 40px 90px rgba(0, 0, 0, 0.3);
+	}
+
+	.mock-bar {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 13px 16px;
+		border-bottom: 1px solid var(--line);
+		font-family: var(--font-mono);
+		font-size: 11px;
+		color: var(--text-muted);
+	}
+
+	.mock-url {
+		margin-left: auto;
+	}
+
+	.mock-body {
+		display: flex;
+		min-height: 380px;
+	}
+
+	.mock-side {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		width: 160px;
+		padding: 22px 14px;
+		background: var(--surface-deep);
+		border-right: 1px solid var(--line);
+		font-size: 13px;
+		color: var(--text-muted);
+	}
+
+	.mock-side .item {
+		padding: 8px 10px;
+		border-radius: 8px;
+	}
+
+	.mock-side .item.active {
+		color: var(--sage);
+		background: rgba(184, 196, 164, 0.1);
+	}
+
+	.mock-main {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 16px;
+		padding: 22px;
+		min-width: 0;
+	}
+
+	.mock-title {
+		font-family: var(--font-display);
+		font-size: 26px;
+		color: var(--text);
+	}
+
+	.mock-caption {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.mock-tasks {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.task {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 12px 14px;
+		border-radius: 12px;
+		background: rgba(241, 238, 228, 0.04);
+		font-size: 14px;
+		color: var(--text);
+	}
+
+	.task.done {
+		color: var(--text-muted);
+		text-decoration: line-through;
+	}
+
+	.check {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		justify-content: center;
+		width: 16px;
+		height: 16px;
+		border: 1px solid var(--sage);
+		border-radius: 5px;
+		font-size: 11px;
+		color: var(--bg);
+	}
+
+	.check.checked {
+		background: var(--sage);
+	}
+
+	@media (max-width: 760px) {
+		.mock-side {
+			display: none;
+		}
+	}
+</style>

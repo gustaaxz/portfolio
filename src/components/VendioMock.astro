@@ -1,0 +1,197 @@
+---
+const sidebar = ['Visão geral', 'Produtos', 'Vendas', 'Clientes', 'Estoque', 'Financeiro'];
+const bars = [42, 58, 36, 71, 64, 88, 79];
+---
+
+<div class="mock">
+	<div class="mock-bar">
+		<span class="dots"><span></span><span></span><span></span></span>
+		<span class="mock-url">app.vendio.com.br</span>
+	</div>
+	<div class="mock-body">
+		<aside class="mock-side">
+			{
+				sidebar.map((item, index) => (
+					<span class:list={['item', index === 0 && 'active']}>{item}</span>
+				))
+			}
+		</aside>
+		<div class="mock-main">
+			<p class="mock-title">Visão geral</p>
+			<div class="mock-stats">
+				<div class="stat">
+					<small>VENDAS</small>
+					<strong>R$ 18.420</strong>
+					<em>↗ 12,8%</em>
+				</div>
+				<div class="stat">
+					<small>PEDIDOS</small>
+					<strong>248</strong>
+					<em>↗ 8,2%</em>
+				</div>
+				<div class="stat">
+					<small>PRODUTOS</small>
+					<strong>136</strong>
+					<em>+ 4 novos</em>
+				</div>
+			</div>
+			<div class="chart" aria-hidden="true">
+				{bars.map((height) => <span class="bar" style={`--h: ${height}%`}></span>)}
+			</div>
+			<div class="order">
+				<span>Pedido #10482</span>
+				<small>Concluído</small>
+				<span class="ok">R$ 289,90</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.mock {
+		overflow: hidden;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		box-shadow: 0 40px 90px rgba(0, 0, 0, 0.3);
+	}
+
+	.mock-bar {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 13px 16px;
+		border-bottom: 1px solid var(--line);
+		font-family: var(--font-mono);
+		font-size: 11px;
+		color: var(--text-muted);
+	}
+
+	.mock-url {
+		margin-left: auto;
+	}
+
+	.mock-body {
+		display: flex;
+		min-height: 380px;
+	}
+
+	.mock-side {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		width: 160px;
+		padding: 22px 14px;
+		background: var(--surface-deep);
+		border-right: 1px solid var(--line);
+		font-size: 13px;
+		color: var(--text-muted);
+	}
+
+	.mock-side .item {
+		padding: 8px 10px;
+		border-radius: 8px;
+	}
+
+	.mock-side .item.active {
+		color: var(--sage);
+		background: rgba(184, 196, 164, 0.1);
+	}
+
+	.mock-main {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 16px;
+		padding: 22px;
+		min-width: 0;
+	}
+
+	.mock-title {
+		font-family: var(--font-display);
+		font-size: 26px;
+		color: var(--text);
+	}
+
+	.mock-stats {
+		display: flex;
+		gap: 12px;
+	}
+
+	.stat {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 4px;
+		padding: 14px;
+		border: 1px solid var(--line);
+		border-radius: 14px;
+	}
+
+	.stat small {
+		font-family: var(--font-mono);
+		font-size: 10px;
+		letter-spacing: 0.1em;
+		color: var(--text-muted);
+	}
+
+	.stat strong {
+		font-family: var(--font-display);
+		font-size: 24px;
+		font-weight: 500;
+		color: var(--text);
+	}
+
+	.stat em {
+		font-style: normal;
+		font-size: 11px;
+		color: var(--sage);
+	}
+
+	.chart {
+		display: flex;
+		flex: 1;
+		align-items: flex-end;
+		gap: 12px;
+		min-height: 130px;
+		padding: 16px;
+		border: 1px solid var(--line);
+		border-radius: 14px;
+	}
+
+	.bar {
+		flex: 1;
+		height: var(--h);
+		border-radius: 6px 6px 2px 2px;
+		background: linear-gradient(180deg, var(--sage), var(--olive));
+	}
+
+	.order {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 12px 14px;
+		border-radius: 12px;
+		background: rgba(241, 238, 228, 0.04);
+		font-size: 13px;
+		color: var(--text);
+	}
+
+	.order span:first-child {
+		flex: 1;
+	}
+
+	.order small {
+		color: var(--text-muted);
+	}
+
+	.ok {
+		color: var(--sage);
+	}
+
+	@media (max-width: 760px) {
+		.mock-side {
+			display: none;
+		}
+	}
+</style>

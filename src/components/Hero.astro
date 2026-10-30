@@ -1,0 +1,133 @@
+---
+---
+
+<section id="inicio" class="screen hero">
+	<div class="wrap hero-layout">
+		<div class="hero-copy">
+			<p class="eyebrow">Desenvolvedor web e mobile</p>
+			<h1>Gustavo Schmitt Hatschbach</h1>
+			<p class="hero-lead">
+				Desenvolvo aplicações web completas, com interface em React e Next.js, API em Node.js e banco de dados em PostgreSQL, além de aplicativos Android em Kotlin com Jetpack Compose. Trabalho de forma independente, do desenho da tela até a publicação.
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="#vendio">Explorar projetos ↓</a>
+				<a class="btn btn-ghost" href="https://github.com/gustaaxz" target="_blank" rel="noreferrer">GitHub ↗</a>
+			</div>
+		</div>
+		<div class="hero-visual">
+			<div class="code-card">
+				<div class="card-head">
+					<span class="dots"><span></span><span></span><span></span></span>
+				</div>
+				<pre class="code-body"><code><span class="k">const</span> desenvolvedor = <span class="s">"Gustavo Schmitt Hatschbach"</span>;
+<span class="k">const</span> stack = ["React", "Next.js", "Node.js", "Kotlin"];</code></pre>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		display: flex;
+		align-items: center;
+		min-height: 100vh;
+		padding: 140px 0 100px;
+		border-top: 0;
+		overflow: hidden;
+	}
+
+	.hero-layout {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 64px;
+	}
+
+	.hero-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		max-width: 640px;
+	}
+
+	.hero h1 {
+		font-size: clamp(60px, 8.4vw, 118px);
+	}
+
+	.hero-lead {
+		max-width: 520px;
+		font-size: 18px;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	.hero-visual {
+		flex: 0 1 460px;
+		transform: translate3d(calc(var(--pointer-x, 0) * 14px), calc(var(--pointer-y, 0) * 10px), 0);
+		transition: transform 0.6s var(--ease);
+	}
+
+	.code-card {
+		overflow: hidden;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		box-shadow: 0 40px 90px rgba(0, 0, 0, 0.3);
+	}
+
+	.card-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 14px 18px;
+		border-bottom: 1px solid var(--line);
+		font-family: var(--font-mono);
+		font-size: 12px;
+		color: var(--text-muted);
+	}
+
+	.code-body {
+		padding: 28px;
+		font-size: 15px;
+		line-height: 2;
+		color: var(--text);
+		white-space: pre;
+		overflow-x: auto;
+	}
+
+	@media (max-width: 960px) {
+		.hero-layout {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.hero-visual {
+			flex-basis: auto;
+			width: 100%;
+			max-width: 520px;
+		}
+	}
+</style>
+
+<script>
+	const visual = document.querySelector('.hero-visual') as HTMLElement | null;
+	const canHover = window.matchMedia('(pointer: fine)').matches;
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	if (visual && canHover && !reduceMotion) {
+		window.addEventListener(
+			'pointermove',
+			(event) => {
+				const x = (event.clientX / window.innerWidth - 0.5) * 2;
+				const y = (event.clientY / window.innerHeight - 0.5) * 2;
+				visual.style.setProperty('--pointer-x', x.toFixed(3));
+				visual.style.setProperty('--pointer-y', y.toFixed(3));
+			},
+			{ passive: true },
+		);
+	}
+</script>

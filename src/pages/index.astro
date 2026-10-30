@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import JourneyRail from '../components/JourneyRail.astro';
+import Hero from '../components/Hero.astro';
+import Stack from '../components/Stack.astro';
+import Project from '../components/Project.astro';
+import VendioMock from '../components/VendioMock.astro';
+import DevcodesMock from '../components/DevcodesMock.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout>
+	<Header />
+	<JourneyRail />
+	<main>
+		<Hero />
+		<Stack />
+		<Project
+			id="vendio"
+			eyebrow="03 / Projeto em destaque"
+			title="Vendio"
+			lead="Plataforma SaaS que integra ERP e e-commerce para simplificar a gestão de pequenos negócios. Vendas, produtos, estoque, clientes e finanças ficam reunidos em um só lugar. Desenvolvida com Next.js, React e TypeScript."
+			tags={['Next.js', 'React', 'TypeScript']}
+			primary={{ label: 'Visitar Vendio ↗', href: 'https://vendiosystems.vercel.app/' }}
+			secondary={{ label: 'Ver código ↗', href: 'https://github.com/vendio-systems/vendio_frontend' }}
+		>
+			<VendioMock />
+		</Project>
+		<Project
+			id="devcodes"
+			eyebrow="04 / Aplicação web"
+			title="DevCodes"
+			lead="Aplicação web para organizar a rotina de estudo de programação. Reúne calendário, tarefas, anotações e uma biblioteca de arquivos de código com realce de sintaxe. Autenticação, dados, sincronização e arquivos ficam integrados ao Supabase. Desenvolvida com React, Vite e Supabase."
+			tags={['React', 'Vite', 'Supabase']}
+			primary={{ label: 'Explorar repositório ↗', href: 'https://github.com/gustaaxz/devcodes' }}
+			secondary={{ label: 'Ver documentação ↗', href: 'https://github.com/gustaaxz/devcodes#readme' }}
+			reverse
+		>
+			<DevcodesMock />
+		</Project>
+		<About />
+		<Contact />
+	</main>
+</Layout>

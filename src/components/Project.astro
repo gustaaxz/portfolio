@@ -1,0 +1,98 @@
+---
+interface Props {
+	id: string;
+	eyebrow: string;
+	title: string;
+	lead: string;
+	tags: string[];
+	primary: { label: string; href: string };
+	secondary: { label: string; href: string };
+	reverse?: boolean;
+}
+
+const { id, eyebrow, title, lead, tags, primary, secondary, reverse = false } = Astro.props;
+---
+
+<section id={id} class="screen">
+	<div class:list={['wrap', 'project-layout', reverse && 'project-layout--reverse']}>
+		<div class="project-copy reveal">
+			<p class="eyebrow">{eyebrow}</p>
+			<h3>{title}</h3>
+			<p class="project-lead">{lead}</p>
+			<ul class="tags">
+				{tags.map((tag) => <li class="tag">{tag}</li>)}
+			</ul>
+			<div class="project-actions">
+				<a class="btn btn-primary" href={primary.href} target="_blank" rel="noreferrer">{primary.label}</a>
+				<a class="btn btn-ghost" href={secondary.href} target="_blank" rel="noreferrer">{secondary.label}</a>
+			</div>
+		</div>
+		<div class="project-visual reveal">
+			<slot />
+		</div>
+	</div>
+</section>
+
+<style>
+	.project-layout {
+		display: flex;
+		align-items: center;
+		gap: 80px;
+	}
+
+	.project-layout--reverse {
+		flex-direction: row-reverse;
+	}
+
+	.project-copy {
+		display: flex;
+		flex: 1 1 0;
+		flex-direction: column;
+		gap: 26px;
+		min-width: 0;
+	}
+
+	.project-visual {
+		flex: 1.1 1 0;
+		min-width: 0;
+	}
+
+	.project-copy h3 {
+		font-size: clamp(56px, 7vw, 96px);
+	}
+
+	.project-lead {
+		max-width: 480px;
+		font-size: 17px;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.tag {
+		padding: 7px 12px;
+		border-radius: 999px;
+		background: rgba(184, 196, 164, 0.1);
+		font-family: var(--font-mono);
+		font-size: 12px;
+		color: var(--sage);
+	}
+
+	.project-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	@media (max-width: 960px) {
+		.project-layout,
+		.project-layout--reverse {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 56px;
+		}
+	}
+</style>

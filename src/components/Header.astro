@@ -1,0 +1,77 @@
+---
+---
+
+<header class="topbar">
+	<div class="wrap topbar-inner">
+		<a class="brand" href="#inicio" aria-label="Gustavo Schmitt Hatschbach, início">G<span>.</span>S</a>
+		<nav class="nav" aria-label="Navegação principal">
+			<a href="#stack">Stack</a>
+			<a href="#vendio">Projetos</a>
+			<a href="#sobre">Sobre</a>
+			<a class="btn btn-ghost btn-small" href="#contato">Contato ↗</a>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.topbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 30;
+		height: 76px;
+		display: flex;
+		align-items: center;
+		background: rgba(30, 48, 40, 0.82);
+		backdrop-filter: blur(18px);
+		-webkit-backdrop-filter: blur(18px);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.topbar-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.brand {
+		font-family: var(--font-display);
+		font-size: 26px;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+	}
+
+	.brand span {
+		color: var(--sage);
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		gap: 32px;
+		font-family: var(--font-mono);
+		font-size: 12px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.nav a {
+		transition: color 0.3s;
+	}
+
+	.nav a:not(.btn):hover {
+		color: var(--sage);
+	}
+
+	@media (max-width: 760px) {
+		.nav {
+			gap: 0;
+		}
+
+		.nav a:not(.btn) {
+			display: none;
+		}
+	}
+</style>

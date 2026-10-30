@@ -1,0 +1,132 @@
+---
+---
+
+<section id="sobre" class="screen">
+	<div class="wrap about-layout">
+		<div class="about-copy reveal">
+			<p class="eyebrow">05 / Sobre mim</p>
+			<h2>Gustavo Schmitt Hatschbach, desenvolvedor web e mobile.</h2>
+			<p>Sou desenvolvedor web e mobile e atuo no Brasil. Gosto de entender como os sistemas funcionam por dentro, por isso cuido tanto da interface quanto da lógica e dos dados que a sustentam.</p>
+			<p>Neste portfólio apresento dois projetos: o Vendio, uma plataforma SaaS que integra ERP e e-commerce, e o DevCodes, uma aplicação para organizar a rotina de estudo de programação.</p>
+			<p>Trabalho por projeto, de forma independente, e cuido das etapas de desenvolvimento, integração com serviços e publicação.</p>
+			<div class="about-links">
+				<a class="text-link" href="https://www.linkedin.com/in/gustavosch" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+				<a class="text-link" href="https://github.com/gustaaxz" target="_blank" rel="noreferrer">GitHub ↗</a>
+			</div>
+		</div>
+		<div class="orbit reveal" aria-hidden="true">
+			<div class="orbit-spin">
+				<span class="orbit-planet"></span>
+			</div>
+			<span class="orbit-core">G<span>.</span>S</span>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about-layout {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 80px;
+	}
+
+	.about-copy {
+		display: flex;
+		flex: 1 1 0;
+		flex-direction: column;
+		gap: 28px;
+		max-width: 640px;
+	}
+
+	.about-copy h2 {
+		font-size: clamp(52px, 6.4vw, 92px);
+	}
+
+	.about-copy > p {
+		font-size: 18px;
+	}
+
+	.about-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	.orbit {
+		position: relative;
+		display: flex;
+		flex: 0 0 340px;
+		align-items: center;
+		justify-content: center;
+		width: 340px;
+		height: 340px;
+	}
+
+	.orbit::before,
+	.orbit::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		border: 1px solid var(--line);
+	}
+
+	.orbit::after {
+		inset: 56px;
+		border-color: rgba(184, 196, 164, 0.35);
+	}
+
+	.orbit-spin {
+		position: absolute;
+		inset: 0;
+		animation: orbit-spin 18s linear infinite;
+	}
+
+	.orbit-planet {
+		position: absolute;
+		top: -6px;
+		left: 50%;
+		width: 12px;
+		height: 12px;
+		margin-left: -6px;
+		border-radius: 50%;
+		background: var(--terracotta);
+	}
+
+	.orbit-core {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		font-family: var(--font-display);
+		font-size: 40px;
+		color: var(--text);
+	}
+
+	.orbit-core span {
+		color: var(--sage);
+	}
+
+	@keyframes orbit-spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	@media (max-width: 960px) {
+		.about-layout {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 56px;
+		}
+
+		.orbit {
+			align-self: center;
+		}
+	}
+</style>
