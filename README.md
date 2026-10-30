@@ -21,6 +21,7 @@ Plataforma SaaS que integra ERP e e-commerce para apoiar a gestão de pequenos n
 ### DevCodes
 Aplicação para organizar os estudos de programação, com calendário, tarefas, anotações e biblioteca de arquivos de código. O portfólio apresenta o projeto como desenvolvido com React, Vite e Supabase.
 
+- Aplicação: [devcodess.vercel.app](http://devcodess.vercel.app)
 - Repositório: [gustaaxz/devcodes](https://github.com/gustaaxz/devcodes)
 
 ## Tecnologias do portfólio
@@ -117,4 +118,4 @@ As animações de entrada usam a API `IntersectionObserver`. O movimento do elem
 
 ## Licença
 
-Nenhuma licença de uso foi especificada até o momento. Entre em contato para solicitar autorização de uso ou redistribuição do conteúdo e do código deste portfólio.
+Este projeto está disponível sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para ver os termos completos.
